@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Equipe FilaParaLanches">
+    <meta name="description" content="FilaParaLanches - controle de estoque e cardápio de produtos.">
+    <meta name="keywords" content="estoque, produtos, cardápio, quantidade, estoque baixo">
+    <title>FilaParaLanches | Estoque</title>
+</head>
+<body>
+
+    <!-- ==========================================================
+         CABEÇALHO DO SITE
+         ========================================================== -->
+    <header>
+        <h1>FilaParaLanches</h1>
+        <p><em>Seu lanche na hora certa, sem bagunça na fila.</em></p>
+    </header>
+
+    <hr>
+
+    <!-- ==========================================================
+         MENU DE NAVEGAÇÃO PRINCIPAL
+         ========================================================== -->
+    <nav>
+        <ul>
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="../clientes/produtos.html">Produtos</a></li>
+            <li><a href="../contato.html">Contato</a></li>
+            <li><a href="../login.html">Login</a></li>
+            <li><a href="../donos/caixa.html">Caixa</a></li>
+            <li><a href="../donos/cozinha.html">Cozinha</a></li>
+            <li><a href="../donos/estoque.html">Estoque</a></li>
+            <li><a href="../clientes/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <!-- ==========================================================
+         CONTEÚDO PRINCIPAL - ESTOQUE
+         ========================================================== -->
+    <main>
+
+        <section id="titulo-estoque">
+            <h2>Estoque e Cardápio</h2>
+
+            <p>
+                Esta página apresenta a estrutura de controle do estoque e do
+                cardápio da lanchonete: listagem de produtos, cadastro de novos
+                itens e alerta de produtos com estoque baixo. Nesta etapa os
+                dados são ilustrativos.
+            </p>
+        </section>
+
+        <hr>
+
+        <!-- ---------- LISTAGEM DE PRODUTOS ---------- -->
+        <section id="lista-produtos">
+            <h3>Produtos cadastrados</h3>
+
+            <table border="1">
+                <caption>Lista geral de produtos do estoque</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Quantidade</th>
+                        <th scope="col">Estoque mínimo</th>
+                        <th scope="col">Situação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>L01</td>
+                        <td>X-Burger</td>
+                        <td>Lanches</td>
+                        <td>R$ 18,00</td>
+                        <td>30</td>
+                        <td>10</td>
+                        <td>OK</td>
+                    </tr>
+                    <tr>
+                        <td>L02</td>
+                        <td>X-Salada</td>
+                        <td>Lanches</td>
+                        <td>R$ 20,00</td>
+                        <td>8</td>
+                        <td>10</td>
+                        <td>Estoque baixo</td>
+                    </tr>
+                    <tr>
+                        <td>L03</td>
+                        <td>X-Bacon</td>
+                        <td>Lanches</td>
+                        <td>R$ 24,00</td>
+                        <td>25</td>
+                        <td>10</td>
+                        <td>OK</td>
+                    </tr>
+                    <tr>
+                        <td>P01</td>
+                        <td>Batata Frita</td>
+                        <td>Porções</td>
+                        <td>R$ 16,00</td>
+                        <td>0</td>
+                        <td>5</td>
+                        <td>Zerado</td>
+                    </tr>
+                    <tr>
+                        <td>B01</td>
+                        <td>Refrigerante Lata</td>
+                        <td>Bebidas</td>
+                        <td>R$ 7,00</td>
+                        <td>60</td>
+                        <td>20</td>
+                        <td>OK</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- ---------- CADASTRO DE PRODUTO ---------- -->
+        <section id="cadastro-produto">
+            <h3>Cadastrar novo produto</h3>
+
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Dados do produto</legend>
+
+                    <p>
+                        <label for="nome-produto-est">Nome do produto: *</label><br>
+                        <input type="text" id="nome-produto-est" name="nome" placeholder="Ex.: X-Egg" size="30" required>
+                    </p>
+
+                    <p>
+                        <label for="categoria-produto-est">Categoria: *</label><br>
+                        <select id="categoria-produto-est" name="categoria" required>
+                            <option value="">Selecione a categoria</option>
+                            <option value="lanches">Lanches</option>
+                            <option value="porcoes">Porções</option>
+                            <option value="bebidas">Bebidas</option>
+                            <option value="sobremesas">Sobremesas</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="preco-produto-est">Preço: *</label><br>
+                        <input type="number" id="preco-produto-est" name="preco" min="0" step="0.01" placeholder="0,00" required>
+                    </p>
+
+                    <p>
+                        <label for="quantidade-produto-est">Quantidade em estoque: *</label><br>
+                        <input type="number" id="quantidade-produto-est" name="quantidade" min="0" required>
+                    </p>
+
+                    <p>
+                        <label for="estoque-minimo-est">Estoque mínimo: *</label><br>
+                        <input type="number" id="estoque-minimo-est" name="estoque-minimo" min="0" required>
+                    </p>
+
+                    <p>
+                        <button type="submit">Cadastrar produto</button>
+                        <button type="reset">Limpar</button>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <small>
+                        O cadastro e a atualização automática do estoque serão
+                        implementados nas próximas entregas, com JavaScript e backend.
+                    </small>
+                </p>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- ---------- ESTOQUE BAIXO ---------- -->
+        <section id="estoque-baixo">
+            <h3>Alerta de reposição</h3>
+
+            <table border="1">
+                <caption>Produtos que precisam de reposição</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Quantidade</th>
+                        <th scope="col">Estoque mínimo</th>
+                        <th scope="col">Situação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>L02</td>
+                        <td>X-Salada</td>
+                        <td>8</td>
+                        <td>10</td>
+                        <td>Estoque baixo</td>
+                    </tr>
+                    <tr>
+                        <td>P01</td>
+                        <td>Batata Frita</td>
+                        <td>0</td>
+                        <td>5</td>
+                        <td>Zerado</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <!-- ==========================================================
+         RODAPÉ DO SITE
+         ========================================================== -->
+    <footer>
+        <h2>FilaParaLanches</h2>
+
+        <h3>Navegação</h3>
+        <ul>
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="../clientes/produtos.html">Produtos</a></li>
+            <li><a href="../contato.html">Contato</a></li>
+            <li><a href="../login.html">Login</a></li>
+            <li><a href="../donos/caixa.html">Caixa</a></li>
+            <li><a href="../donos/cozinha.html">Cozinha</a></li>
+            <li><a href="../donos/estoque.html">Estoque</a></li>
+            <li><a href="../clientes/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+
+        <h3>Contato</h3>
+        <address>
+            Rua das Chamas, 123 - Centro<br>
+            Telefone: (00) 0000-0000<br>
+            E-mail: <a href="mailto:contato@filaparalanches.com.br">contato@filaparalanches.com.br</a>
+        </address>
+
+        <p><small>&copy; 2026 FilaParaLanches - Todos os direitos reservados.</small></p>
+    </footer>
+
+</body>
+</html>

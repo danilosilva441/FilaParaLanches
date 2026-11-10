@@ -1,0 +1,53 @@
+/* ==========================================================
+   FilaParaLanches - index.css (só página inicial)
+   ========================================================== */
+
+/* ---------- Apresentação ---------- */
+#apresentacao strong { color: var(--cor-primaria-escura); }
+
+/* ---------- Como funciona: etapas numeradas ---------- */
+#como-funciona ol {
+    list-style: none;
+    counter-reset: etapas;
+    margin-top: 1rem;
+}
+#como-funciona ol li {
+    counter-increment: etapas;
+    position: relative;
+    padding: .7rem .7rem .7rem 3rem;
+    margin-bottom: .6rem;
+    background-color: #fdf3e7;
+    border-left: 4px solid var(--cor-primaria);
+    border-radius: 6px;
+}
+#como-funciona ol li::before {
+    content: counter(etapas);
+    position: absolute;
+    left: .8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.6rem;
+    height: 1.6rem;
+    background-color: var(--cor-primaria);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: .9rem;
+}
+
+/* ---------- Diferenciais com "check" ---------- */
+#diferenciais ul { list-style: none; margin-top: .5rem; }
+#diferenciais li {
+    position: relative;
+    padding: .35rem 0 .35rem 1.8rem;
+}
+#diferenciais li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: var(--cor-primaria);
+    font-weight: bold;
+}

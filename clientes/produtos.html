@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Equipe FilaParaLanches">
+    <meta name="description" content="FilaParaLanches - página de produtos com o cardápio da lanchonete.">
+    <meta name="keywords" content="lanches, cardápio, hambúrguer, produtos, preços">
+    <title>FilaParaLanches | Produtos</title>
+</head>
+<body>
+
+    <!-- ==========================================================
+         CABEÇALHO DO SITE
+         ========================================================== -->
+    <header>
+        <h1>FilaParaLanches</h1>
+        <p><em>Seu lanche na hora certa, sem bagunça na fila.</em></p>
+    </header>
+
+    <hr>
+
+    <!-- ==========================================================
+         MENU DE NAVEGAÇÃO PRINCIPAL
+         ========================================================== -->
+    <nav>
+        <ul>
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="../clientes/produtos.html">Produtos</a></li>
+            <li><a href="../contato.html">Contato</a></li>
+            <li><a href="../login.html">Login</a></li>
+            <li><a href="../donos/caixa.html">Caixa</a></li>
+            <li><a href="../donos/cozinha.html">Cozinha</a></li>
+            <li><a href="../donos/estoque.html">Estoque</a></li>
+            <li><a href="../clientes/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <!-- ==========================================================
+         CONTEÚDO PRINCIPAL - PRODUTOS
+         ========================================================== -->
+    <main>
+
+        <section id="titulo-produtos">
+            <h2>Nossos produtos</h2>
+
+            <p>
+                Confira abaixo o cardápio da FilaParaLanches. Os produtos estão
+                organizados por categoria para facilitar a escolha.
+            </p>
+        </section>
+
+        <hr>
+
+        <!-- ---------- FORMULÁRIO DE BUSCA ---------- -->
+        <section id="busca-produtos">
+            <h3>Buscar produto</h3>
+
+            <form action="#" method="get">
+                <fieldset>
+                    <legend>Filtro do cardápio</legend>
+
+                    <p>
+                        <label for="nome-produto">Nome do produto:</label>
+                        <input type="text" id="nome-produto" name="nome" placeholder="Ex.: X-Burger">
+                    </p>
+
+                    <p>
+                        <label for="categoria-produto">Categoria:</label>
+                        <select id="categoria-produto" name="categoria">
+                            <option value="">Todas as categorias</option>
+                            <option value="lanches">Lanches</option>
+                            <option value="porcoes">Porções</option>
+                            <option value="bebidas">Bebidas</option>
+                            <option value="sobremesas">Sobremesas</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <button type="submit">Buscar</button>
+                        <button type="reset">Limpar</button>
+                    </p>
+                </fieldset>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- ---------- CATEGORIA: LANCHES ---------- -->
+        <section id="lanches">
+            <h3>Lanches</h3>
+
+            <table border="1">
+                <caption>Lanches disponíveis no cardápio</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Preço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>L01</td>
+                        <td>X-Burger</td>
+                        <td>Pão, hambúrguer, queijo e molho da casa</td>
+                        <td>R$ 18,00</td>
+                    </tr>
+                    <tr>
+                        <td>L02</td>
+                        <td>X-Salada</td>
+                        <td>Pão, hambúrguer, queijo, alface e tomate</td>
+                        <td>R$ 20,00</td>
+                    </tr>
+                    <tr>
+                        <td>L03</td>
+                        <td>X-Bacon</td>
+                        <td>Pão, hambúrguer, queijo, bacon e cheddar</td>
+                        <td>R$ 24,00</td>
+                    </tr>
+                    <tr>
+                        <td>L04</td>
+                        <td>X-Tudo</td>
+                        <td>Pão, dois hambúrgueres, presunto, ovo, bacon e salada</td>
+                        <td>R$ 30,00</td>
+                    </tr>
+                    <tr>
+                        <td>L05</td>
+                        <td>Hot Dog</td>
+                        <td>Pão, salsicha, milho, batata palha e molhos</td>
+                        <td>R$ 15,00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- ---------- CATEGORIA: PORÇÕES ---------- -->
+        <section id="porcoes">
+            <h3>Porções</h3>
+
+            <table border="1">
+                <caption>Porções para compartilhar</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Preço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>P01</td>
+                        <td>Batata Frita</td>
+                        <td>Porção de batata frita crocante com sal</td>
+                        <td>R$ 16,00</td>
+                    </tr>
+                    <tr>
+                        <td>P02</td>
+                        <td>Batata com Cheddar</td>
+                        <td>Batata frita coberta com cheddar e bacon</td>
+                        <td>R$ 22,00</td>
+                    </tr>
+                    <tr>
+                        <td>P03</td>
+                        <td>Frango a Passarinho</td>
+                        <td>Porção de frango empanado com alho e limão</td>
+                        <td>R$ 28,00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- ---------- CATEGORIA: BEBIDAS ---------- -->
+        <section id="bebidas">
+            <h3>Bebidas</h3>
+
+            <table border="1">
+                <caption>Bebidas geladas</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Preço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>B01</td>
+                        <td>Refrigerante Lata</td>
+                        <td>Lata de 350 ml - diversos sabores</td>
+                        <td>R$ 7,00</td>
+                    </tr>
+                    <tr>
+                        <td>B02</td>
+                        <td>Suco Natural</td>
+                        <td>Copo de 500 ml - laranja, limão ou maracujá</td>
+                        <td>R$ 10,00</td>
+                    </tr>
+                    <tr>
+                        <td>B03</td>
+                        <td>Água Mineral</td>
+                        <td>Garrafa de 500 ml, com ou sem gás</td>
+                        <td>R$ 5,00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- ---------- CATEGORIA: SOBREMESAS ---------- -->
+        <section id="sobremesas">
+            <h3>Sobremesas</h3>
+
+            <table border="1">
+                <caption>Sobremesas da casa</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Preço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>S01</td>
+                        <td>Milk Shake</td>
+                        <td>Copo de 400 ml - chocolate, morango ou baunilha</td>
+                        <td>R$ 14,00</td>
+                    </tr>
+                    <tr>
+                        <td>S02</td>
+                        <td>Petit Gateau</td>
+                        <td>Bolo quente de chocolate com sorvete de creme</td>
+                        <td>R$ 18,00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- ---------- OBSERVAÇÕES ---------- -->
+        <section id="observacoes">
+            <h3>Observações</h3>
+
+            <ul>
+                <li>Os preços podem sofrer alteração sem aviso prévio.</li>
+                <li>Imagens dos produtos serão adicionadas na próxima entrega.</li>
+                <li>Pedidos para retirada no balcão.</li>
+            </ul>
+
+            <p>
+                <a href="../contato.html">Fale com a gente</a> para tirar dúvidas sobre o cardápio.
+            </p>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <!-- ==========================================================
+         RODAPÉ DO SITE
+         ========================================================== -->
+    <footer>
+        <h2>FilaParaLanches</h2>
+
+
+        <h3>Navegação</h3>
+        <ul>
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="../clientes/produtos.html">Produtos</a></li>
+            <li><a href="../contato.html">Contato</a></li>
+            <li><a href="../login.html">Login</a></li>
+            <li><a href="../donos/caixa.html">Caixa</a></li>
+            <li><a href="../donos/cozinha.html">Cozinha</a></li>
+            <li><a href="../donos/estoque.html">Estoque</a></li>
+            <li><a href="../clientes/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+
+        <h3>Contato</h3>
+        <address>
+            Rua das Chamas, 123 - Centro<br>
+            Telefone: (00) 0000-0000<br>
+            E-mail: <a href="mailto:contato@filaparalanches.com.br">contato@filaparalanches.com.br</a>
+        </address>
+
+        <p><small>&copy; 2026 FilaParaLanches - Todos os direitos reservados.</small></p>
+    </footer>
+
+</body>
+</html>

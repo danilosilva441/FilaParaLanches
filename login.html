@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Equipe FilaParaLanches">
+    <meta name="description" content="FilaParaLanches - página de login de acesso ao sistema.">
+    <meta name="keywords" content="login, acesso, sistema, funcionários, fila">
+    <title>FilaParaLanches | Login</title>
+    <title>FilaParaLanches | Login</title>
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/login.css">
+<script src="js/global.js" defer></script>
+<script src="js/login.js" defer></script>
+</head>
+<body>
+
+    <!-- ==========================================================
+         CABEÇALHO DO SITE
+         ========================================================== -->
+    <header>
+        <h1>FilaParaLanches</h1>
+        <p><em>Seu lanche na hora certa, sem bagunça na fila.</em></p>
+    </header>
+
+    <hr>
+
+    <!-- ==========================================================
+         MENU DE NAVEGAÇÃO PRINCIPAL
+         ========================================================== -->
+    <nav>
+        <button type="button" class="menu-toggle" id="menu-toggle"
+            aria-expanded="false" aria-label="Abrir menu">☰</button>
+    <ul id="menu-principal">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="./clientes/produtos.html">Produtos</a></li>
+            <li><a href="./contato.html">Contato</a></li>
+            <li><a href="./login.html">Login</a></li>
+            <li><a href="./donos/caixa.html">Caixa</a></li>
+            <li><a href="./donos/cozinha.html">Cozinha</a></li>
+            <li><a href="./donos/estoque.html">Estoque</a></li>
+            <li><a href="./clientes/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <!-- ==========================================================
+         CONTEÚDO PRINCIPAL - LOGIN
+         ========================================================== -->
+    <main>
+
+        <section id="titulo-login">
+            <h2>Acesso ao sistema</h2>
+
+            <p>
+                Utilize esta página para entrar na área restrita do
+                <strong>FilaParaLanches</strong>. O acesso é separado por tipo de usuário:
+                clientes acompanham pedidos e funcionários trabalham com as áreas
+                de caixa, cozinha e estoque.
+            </p>
+        </section>
+
+        <hr>
+
+        <!-- ---------- FORMULÁRIO DE LOGIN ---------- -->
+        <section id="formulario-login">
+            <h3>Entrar no sistema</h3>
+
+            <form action="#" method="post" id="form-login" novalidate>
+
+                <fieldset>
+                    <legend>Dados de acesso</legend>
+
+                    <p>
+                        <label for="usuario">Usuário: *</label><br>
+                        <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário" size="30" required>
+                    </p>
+
+                    <p>
+                        <label for="senha">Senha: *</label><br>
+                        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" size="30" required>
+                    </p>
+
+                    <p>
+                        <label for="tipo-acesso">Tipo de acesso:</label><br>
+                        <select id="tipo-acesso" name="tipo">
+                            <option value="">Selecione uma opção</option>
+                            <option value="cliente">Cliente</option>
+                            <option value="dono">Dono</option>
+                            <option value="caixa">Funcionário - Caixa</option>
+                            <option value="cozinha">Funcionário - Cozinha</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" id="manter-conectado" name="manter" value="sim">
+                        <label for="manter-conectado">Manter conectado</label>
+                    </p>
+
+<p>
+                        <button type="submit">Entrar</button>
+                        <button type="reset">Limpar</button>
+                    </p>
+
+                    <p id="msg-login" class="form-msg" aria-live="polite"></p>
+                </fieldset>
+                </fieldset>
+
+<p>
+    <small>
+        A validação dos campos é feita no navegador com JavaScript.
+        A verificação real de usuário e senha no backend será
+        implementada nas próximas entregas.
+    </small>
+</p>
+
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- ---------- ÁREAS DO SISTEMA ---------- -->
+        <section id="areas">
+            <h3>Áreas do sistema</h3>
+
+            <p>Cada tipo de acesso direciona o usuário para a sua área:</p>
+
+            <table border="1">
+                <caption>Áreas disponíveis conforme o tipo de acesso</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Tipo de acesso</th>
+                        <th scope="col">Área</th>
+                        <th scope="col">Página</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cliente</td>
+                        <td>Acompanhamento do pedido</td>
+                        <td><a href="./clientes/acompanhamento.html">Acompanhar</a></td>
+                    </tr>
+                    <tr>
+                        <td>Funcionário - Caixa</td>
+                        <td>Painel do caixa</td>
+                        <td><a href="./donos/caixa.html">Caixa</a></td>
+                    </tr>
+                    <tr>
+                        <td>Funcionário - Cozinha</td>
+                        <td>Fila da cozinha</td>
+                        <td><a href="./donos/cozinha.html">Cozinha</a></td>
+                    </tr>
+                    <tr>
+                        <td>Dono</td>
+                        <td>Estoque e cardápio</td>
+                        <td><a href="./donos/estoque.html">Estoque</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <!-- ==========================================================
+         RODAPÉ DO SITE
+         ========================================================== -->
+    <footer>
+        <h2>FilaParaLanches</h2>
+
+
+        <h3>Navegação</h3>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href=".clientes/produtos.html">Produtos</a></li>
+            <li><a href="./contato.html">Contato</a></li>
+            <li><a href="./login.html">Login</a></li>
+            <li><a href="./donos/caixa.html">Caixa</a></li>
+            <li><a href="./donos/cozinha.html">Cozinha</a></li>
+            <li><a href="./donos/estoque.html">Estoque</a></li>
+            <li><a href="./clientes/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+
+        <h3>Contato</h3>
+        <address>
+            Rua das Chamas, 123 - Centro<br>
+            Telefone: (00) 0000-0000<br>
+            E-mail: <a href="mailto:contato@filaparalanches.com.br">contato@filaparalanches.com.br</a>
+        </address>
+
+        <p><small>&copy; 2026 FilaParaLanches - Todos os direitos reservados.</small></p>
+    </footer>
+
+</body>
+</html>

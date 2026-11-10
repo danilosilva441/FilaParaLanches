@@ -1,0 +1,28 @@
+/* ==========================================================
+   FilaParaLanches - login.css (só página de login)
+   ========================================================== */
+
+/* ---------- Formulário centralizado em formato de card ---------- */
+#formulario-login fieldset {
+    max-width: 480px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+/* ---------- Checkbox na largura natural ---------- */
+#formulario-login input[type="checkbox"] {
+    width: auto;
+    margin-right: .4rem;
+}
+
+/* ---------- Área de mensagem ---------- */
+#msg-login {
+    text-align: center;
+    min-height: 1.5em;
+}
+
+/* ---------- Tabela de áreas centralizada ---------- */
+#areas table {
+    max-width: 700px;
+    margin: 1rem auto 0;
+}

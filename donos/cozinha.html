@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Equipe FilaParaLanches">
+    <meta name="description" content="FilaParaLanches - fila da cozinha com o controle de preparo dos pedidos.">
+    <meta name="keywords" content="cozinha, fila, pedidos, preparo, status">
+    <title>FilaParaLanches | Cozinha</title>
+</head>
+<body>
+
+    <!-- ==========================================================
+         CABEÇALHO DO SITE
+         ========================================================== -->
+    <header>
+        <h1>FilaParaLanches</h1>
+        <p><em>Seu lanche na hora certa, sem bagunça na fila.</em></p>
+    </header>
+
+    <hr>
+
+    <!-- ==========================================================
+         MENU DE NAVEGAÇÃO PRINCIPAL
+         ========================================================== -->
+    <nav>
+        <ul>
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="../clientes/produtos.html">Produtos</a></li>
+            <li><a href="../contato.html">Contato</a></li>
+            <li><a href="../login.html">Login</a></li>
+            <li><a href="../donos/caixa.html">Caixa</a></li>
+            <li><a href="../donos/cozinha.html">Cozinha</a></li>
+            <li><a href="../donos/estoque.html">Estoque</a></li>
+            <li><a href="../clientes/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <!-- ==========================================================
+         CONTEÚDO PRINCIPAL - COZINHA
+         ========================================================== -->
+    <main>
+
+        <section id="titulo-cozinha">
+            <h2>Fila da Cozinha</h2>
+
+            <p>
+                Esta página apresenta a estrutura da fila da cozinha, onde os
+                pedidos aparecem em ordem de chegada e o status de cada um é
+                atualizado conforme o preparo. Nesta etapa os dados são ilustrativos.
+            </p>
+        </section>
+
+        <hr>
+
+        <!-- ---------- ETAPAS DO PREPARO ---------- -->
+        <section id="etapas">
+            <h3>Etapas do preparo</h3>
+
+            <p>Cada pedido passa pelas seguintes etapas:</p>
+
+            <ol>
+                <li><strong>Recebido</strong> - o pedido entrou na fila.</li>
+                <li><strong>Em preparo</strong> - o lanche está sendo montado.</li>
+                <li><strong>Pronto</strong> - o pedido pode ser retirado no balcão.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <!-- ---------- FILA DE PEDIDOS ---------- -->
+        <section id="fila">
+            <h3>Pedidos na fila</h3>
+
+            <table border="1">
+                <caption>Fila de pedidos em ordem de chegada</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Nº do pedido</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Itens</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>004</td>
+                        <td>18:27</td>
+                        <td>Petit Gateau, Água Mineral</td>
+                        <td>Recebido</td>
+                    </tr>
+                    <tr>
+                        <td>001</td>
+                        <td>18:05</td>
+                        <td>X-Bacon, Refrigerante Lata</td>
+                        <td>Em preparo</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>18:12</td>
+                        <td>X-Tudo, Batata com Cheddar</td>
+                        <td>Em preparo</td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>18:20</td>
+                        <td>Hot Dog, Suco Natural</td>
+                        <td>Pronto</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- ---------- ATUALIZAR STATUS ---------- -->
+        <section id="atualizar-status">
+            <h3>Atualizar status de um pedido</h3>
+
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Atualização manual</legend>
+
+                    <p>
+                        <label for="nro-pedido-coz">Número do pedido: *</label><br>
+                        <input type="number" id="nro-pedido-coz" name="nro-pedido" min="1" required>
+                    </p>
+
+                    <p>
+                        <label for="novo-status">Novo status: *</label><br>
+                        <select id="novo-status" name="status" required>
+                            <option value="">Selecione o status</option>
+                            <option value="recebido">Recebido</option>
+                            <option value="em-preparo">Em preparo</option>
+                            <option value="pronto">Pronto</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <button type="submit">Atualizar status</button>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <small>
+                        A atualização automática do status, junto com avisos
+                        sonoros, será implementada nas próximas entregas.
+                    </small>
+                </p>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- ---------- PEDIDOS PRONTOS ---------- -->
+        <section id="prontos">
+            <h3>Pedidos prontos para retirada</h3>
+
+            <table border="1">
+                <caption>Pedidos aguardando o cliente</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Nº do pedido</th>
+                        <th scope="col">Hora do pronto</th>
+                        <th scope="col">Itens</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>003</td>
+                        <td>18:41</td>
+                        <td>Hot Dog, Suco Natural</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <!-- ==========================================================
+         RODAPÉ DO SITE
+         ========================================================== -->
+    <footer>
+        <h2>FilaParaLanches</h2>
+
+        <h3>Navegação</h3>
+        <ul>
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="../clientes/produtos.html">Produtos</a></li>
+            <li><a href="../contato.html">Contato</a></li>
+            <li><a href="../login.html">Login</a></li>
+            <li><a href="../donos/caixa.html">Caixa</a></li>
+            <li><a href="../donos/cozinha.html">Cozinha</a></li>
+            <li><a href="../donos/estoque.html">Estoque</a></li>
+            <li><a href="../clientes/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+
+        <h3>Contato</h3>
+        <address>
+            Rua das Chamas, 123 - Centro<br>
+            Telefone: (00) 0000-0000<br>
+            E-mail: <a href="mailto:contato@filaparalanches.com.br">contato@filaparalanches.com.br</a>
+        </address>
+
+        <p><small>&copy; 2026 FilaParaLanches - Todos os direitos reservados.</small></p>
+    </footer>
+
+</body>
+</html>

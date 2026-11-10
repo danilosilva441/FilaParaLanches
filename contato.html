@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Equipe FilaParaLanches">
+    <meta name="description" content="FilaParaLanches - página de contato com formulário de atendimento.">
+    <meta name="keywords" content="contato, lanches, atendimento, formulário, lanchonete">
+    <title>FilaParaLanches | Contato</title>
+</head>
+<body>
+
+    <!-- ==========================================================
+         CABEÇALHO DO SITE
+         ========================================================== -->
+    <header>
+        <h1>FilaParaLanches</h1>
+        <p><em>Seu lanche na hora certa, sem bagunça na fila.</em></p>
+    </header>
+
+    <hr>
+
+    <!-- ==========================================================
+         MENU DE NAVEGAÇÃO PRINCIPAL
+         ========================================================== -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href=".clientes/produtos.html">Produtos</a></li>
+            <li><a href="./contato.html">Contato</a></li>
+            <li><a href="./login.html">Login</a></li>
+            <li><a href="./donos/caixa.html">Caixa</a></li>
+            <li><a href="./donos/cozinha.html">Cozinha</a></li>
+            <li><a href="./donos/estoque.html">Estoque</a></li>
+            <li><a href="./clientes/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <!-- ==========================================================
+         CONTEÚDO PRINCIPAL - CONTATO
+         ========================================================== -->
+    <main>
+
+        <section id="titulo-contato">
+            <h2>Fale com a gente</h2>
+
+            <p>
+                Tem alguma dúvida, sugestão ou reclamação? Preencha o formulário
+                abaixo e a nossa equipe responderá o mais breve possível.
+            </p>
+        </section>
+
+        <hr>
+
+        <!-- ---------- FORMULÁRIO DE CONTATO ---------- -->
+        <section id="formulario-contato">
+            <h3>Formulário de contato</h3>
+
+            <form action="#" method="post">
+
+                <!-- DADOS PESSOAIS -->
+                <fieldset>
+                    <legend>Dados pessoais</legend>
+
+                    <p>
+                        <label for="nome">Nome completo: *</label><br>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" size="40" required>
+                    </p>
+
+                    <p>
+                        <label for="email">E-mail: *</label><br>
+                        <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" size="40" required>
+                    </p>
+
+                    <p>
+                        <label for="telefone">Telefone:</label><br>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" size="20">
+                    </p>
+
+                    <p>
+                        <label for="nascimento">Data de nascimento:</label><br>
+                        <input type="date" id="nascimento" name="nascimento">
+                    </p>
+                </fieldset>
+
+                <!-- MENSAGEM -->
+                <fieldset>
+                    <legend>Mensagem</legend>
+
+                    <p>
+                        <label for="assunto">Assunto: *</label><br>
+                        <select id="assunto" name="assunto" required>
+                            <option value="">Selecione uma opção</option>
+                            <option value="duvida">Dúvida sobre o cardápio</option>
+                            <option value="pedido">Problema com um pedido</option>
+                            <option value="sugestao">Sugestão</option>
+                            <option value="elogio">Elogio</option>
+                            <option value="outro">Outro assunto</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="mensagem">Mensagem: *</label><br>
+                        <textarea id="mensagem" name="mensagem" rows="6" cols="50" placeholder="Escreva sua mensagem aqui..." required></textarea>
+                    </p>
+                </fieldset>
+
+                <!-- PREFERÊNCIAS -->
+                <fieldset>
+                    <legend>Preferências de contato</legend>
+
+                    <p>Como prefere ser respondido?</p>
+
+                    <p>
+                        <input type="radio" id="pref-email" name="preferencia" value="email" checked>
+                        <label for="pref-email">Por e-mail</label><br>
+
+                        <input type="radio" id="pref-telefone" name="preferencia" value="telefone">
+                        <label for="pref-telefone">Por telefone</label><br>
+
+                        <input type="radio" id="pref-whatsapp" name="preferencia" value="whatsapp">
+                        <label for="pref-whatsapp">Por WhatsApp</label>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" id="aceite" name="aceite" value="sim" required>
+                        <label for="aceite">Autorizo o uso dos meus dados para retorno do contato. *</label>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" id="newsletter" name="newsletter" value="sim">
+                        <label for="newsletter">Desejo receber promoções por e-mail.</label>
+                    </p>
+                </fieldset>
+
+                <!-- BOTÕES -->
+                <p>
+                    <button type="submit">Enviar mensagem</button>
+                    <button type="reset">Limpar formulário</button>
+                </p>
+
+                <p><small>Os campos marcados com * são obrigatórios.</small></p>
+
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- ---------- INFORMAÇÕES DE CONTATO ---------- -->
+        <section id="informacoes">
+            <h3>Outros canais de atendimento</h3>
+
+            <address>
+                <strong>FilaParaLanches</strong><br>
+                Rua das Chamas, 123 - Centro<br>
+                Cidade Exemplo - UF<br>
+                Telefone: (00) 0000-0000<br>
+                WhatsApp: (00) 00000-0000<br>
+                E-mail: <a href="mailto:contato@filaparalanches.com.br">contato@filaparalanches.com.br</a>
+            </address>
+
+            <h4>Horário de atendimento</h4>
+
+            <table border="1">
+                <caption>Horários de atendimento da lanchonete</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Dia da semana</th>
+                        <th scope="col">Horário</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Segunda a quinta</td>
+                        <td>18:00 às 23:00</td>
+                    </tr>
+                    <tr>
+                        <td>Sexta e sábado</td>
+                        <td>18:00 às 00:30</td>
+                    </tr>
+                    <tr>
+                        <td>Domingo</td>
+                        <td>18:00 às 22:00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <!-- ==========================================================
+         RODAPÉ DO SITE
+         ========================================================== -->
+    <footer>
+        <h2>FilaParaLanches</h2>
+
+
+        <h3>Navegação</h3>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href=".clientes/produtos.html">Produtos</a></li>
+            <li><a href="./contato.html">Contato</a></li>
+            <li><a href="./login.html">Login</a></li>
+            <li><a href="./donos/caixa.html">Caixa</a></li>
+            <li><a href="./donos/cozinha.html">Cozinha</a></li>
+            <li><a href="./donos/estoque.html">Estoque</a></li>
+            <li><a href="./clientes/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+
+        <h3>Contato</h3>
+        <address>
+            Rua das Chamas, 123 - Centro<br>
+            Telefone: (00) 0000-0000<br>
+            E-mail: <a href="mailto:contato@filaparalanches.com.br">contato@filaparalanches.com.br</a>
+        </address>
+
+        <p><small>&copy; 2026 FilaParaLanches - Todos os direitos reservados.</small></p>
+    </footer>
+
+</body>
+</html>

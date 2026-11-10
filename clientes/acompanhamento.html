@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Equipe FilaParaLanches">
+    <meta name="description" content="FilaParaLanches - página de acompanhamento do pedido pelo cliente.">
+    <meta name="keywords" content="acompanhamento, pedido, status, fila, retirada">
+    <title>FilaParaLanches | Acompanhar Pedido</title>
+</head>
+<body>
+
+    <!-- ==========================================================
+         CABEÇALHO DO SITE
+         ========================================================== -->
+    <header>
+        <h1>FilaParaLanches</h1>
+        <p><em>Seu lanche na hora certa, sem bagunça na fila.</em></p>
+    </header>
+
+    <hr>
+
+    <!-- ==========================================================
+         MENU DE NAVEGAÇÃO PRINCIPAL
+         ========================================================== -->
+    <nav>
+        <ul>
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="../clientes/produtos.html">Produtos</a></li>
+            <li><a href="../contato.html">Contato</a></li>
+            <li><a href="../login.html">Login</a></li>
+            <li><a href="../donos/caixa.html">Caixa</a></li>
+            <li><a href="../donos/cozinha.html">Cozinha</a></li>
+            <li><a href="../donos/estoque.html">Estoque</a></li>
+            <li><a href="../clientes/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <!-- ==========================================================
+         CONTEÚDO PRINCIPAL - ACOMPANHAMENTO
+         ========================================================== -->
+    <main>
+
+        <section id="titulo-acompanhamento">
+            <h2>Acompanhar meu pedido</h2>
+
+            <p>
+                Informe o número do seu pedido para visualizar o andamento do
+                preparo. Nesta etapa a consulta é ilustrativa.
+            </p>
+        </section>
+
+        <hr>
+
+        <!-- ---------- CONSULTA DO PEDIDO ---------- -->
+        <section id="consulta-pedido">
+            <h3>Consultar pedido</h3>
+
+            <form action="#" method="get">
+                <fieldset>
+                    <legend>Consulta</legend>
+
+                    <p>
+                        <label for="nro-pedido-acomp">Número do pedido: *</label><br>
+                        <input type="number" id="nro-pedido-acomp" name="nro-pedido" min="1" placeholder="Ex.: 001" required>
+                    </p>
+
+                    <p>
+                        <button type="submit">Consultar</button>
+                        <button type="reset">Limpar</button>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <small>
+                        A consulta dinâmica do pedido será implementada nas
+                        próximas entregas, com JavaScript e backend.
+                    </small>
+                </p>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- ---------- STATUS DO PEDIDO ---------- -->
+        <section id="status-pedido">
+            <h3>Andamento do pedido (exemplo)</h3>
+
+            <p>Pedido <strong>nº 001</strong> - o status atual é <strong>Em preparo</strong>.</p>
+
+            <ol>
+                <li><strong>Recebido</strong> - pedido confirmado às 18:05.</li>
+                <li><strong>Em preparo</strong> - o lanche está sendo montado. <em>&larr; estamos aqui</em></li>
+                <li><strong>Pronto</strong> - retirar no balcão.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <!-- ---------- RESUMO DO PEDIDO ---------- -->
+        <section id="resumo-pedido">
+            <h3>Resumo do pedido</h3>
+
+            <table border="1">
+                <caption>Itens do pedido nº 001</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Quantidade</th>
+                        <th scope="col">Valor unitário</th>
+                        <th scope="col">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>X-Bacon</td>
+                        <td>1</td>
+                        <td>R$ 24,00</td>
+                        <td>R$ 24,00</td>
+                    </tr>
+                    <tr>
+                        <td>Refrigerante Lata</td>
+                        <td>1</td>
+                        <td>R$ 7,00</td>
+                        <td>R$ 7,00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td colspan="2"></td>
+                        <td><strong>R$ 31,00</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- ---------- OPÇÕES ---------- -->
+        <section id="opcoes">
+            <h3>Precisa de ajuda?</h3>
+
+            <ul>
+                <li><a href="../contato.html">Fale com a lanchonete</a> sobre o seu pedido.</li>
+                <li><a href="produtos.html">Monte um novo pedido</a> no cardápio.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <!-- ==========================================================
+         RODAPÉ DO SITE
+         ========================================================== -->
+    <footer>
+        <h2>FilaParaLanches</h2>
+
+        <h3>Navegação</h3>
+        <ul>
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="../clientes/produtos.html">Produtos</a></li>
+            <li><a href="../contato.html">Contato</a></li>
+            <li><a href="../login.html">Login</a></li>
+            <li><a href="../donos/caixa.html">Caixa</a></li>
+            <li><a href="../donos/cozinha.html">Cozinha</a></li>
+            <li><a href="../donos/estoque.html">Estoque</a></li>
+            <li><a href="../clientes/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+
+        <h3>Contato</h3>
+        <address>
+            Rua das Chamas, 123 - Centro<br>
+            Telefone: (00) 0000-0000<br>
+            E-mail: <a href="mailto:contato@filaparalanches.com.br">contato@filaparalanches.com.br</a>
+        </address>
+
+        <p><small>&copy; 2026 FilaParaLanches - Todos os direitos reservados.</small></p>
+    </footer>
+
+</body>
+</html>

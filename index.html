@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Equipe FilaParaLanches">
+    <meta name="description" content="FilaParaLanches - lanchonete com pedidos organizados por fila. Página inicial do projeto.">
+    <meta name="keywords" content="lanches, hambúrguer, fila, pedidos, lanchonete">
+    <title>FilaParaLanches | Página Inicial</title>
+    <title>FilaParaLanches | Página Inicial</title>
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/global.js" defer></script>
+<script src="js/index.js" defer></script>
+</head>
+<body>
+
+    <!-- ==========================================================
+         CABEÇALHO DO SITE
+         Contém a identidade visual (nome e slogan) do projeto.
+         ========================================================== -->
+    <header>
+        <h1>FilaParaLanches</h1>
+        <p><em>Seu lanche na hora certa, sem bagunça na fila.</em></p>
+    </header>
+
+    <hr>
+
+    <!-- ==========================================================
+         MENU DE NAVEGAÇÃO PRINCIPAL
+         Presente em todas as páginas do site.
+         ========================================================== -->
+<nav>
+    <button type="button" class="menu-toggle" id="menu-toggle"
+            aria-expanded="false" aria-label="Abrir menu">☰</button>
+    <ul id="menu-principal">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="./clientes/produtos.html">Produtos</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="./donos/caixa.html">Caixa</a></li>
+        <li><a href="./donos/cozinha.html">Cozinha</a></li>
+        <li><a href="./donos/estoque.html">Estoque</a></li>
+        <li><a href="./clientes/acompanhamento.html">Acompanhar</a></li>
+    </ul>
+</nav>
+
+    <hr>
+
+    <!-- ==========================================================
+         CONTEÚDO PRINCIPAL DA PÁGINA INICIAL
+         ========================================================== -->
+    <main>
+
+        <!-- ---------- APRESENTAÇÃO ---------- -->
+        <section id="apresentacao">
+            <h2>Bem-vindo à FilaParaLanches</h2>
+
+            <p>
+                A <strong>FilaParaLanches</strong> é uma lanchonete que organiza os pedidos
+                em uma fila digital. Assim, o cliente sabe exatamente em que etapa o seu
+                lanche está: <em>recebido</em>, <em>em preparo</em> ou <em>pronto para retirada</em>.
+            </p>
+
+        </section>
+
+        <hr>
+
+        <!-- ---------- COMO FUNCIONA ---------- -->
+        <section id="como-funciona">
+            <h2>Como funciona o pedido</h2>
+
+            <p>O atendimento acontece em quatro etapas simples:</p>
+
+            <ol>
+                <li>O cliente escolhe o lanche na <a href="./clientes/produtos.html">página de produtos</a>.</li>
+                <li>O pedido entra na fila e recebe um número de acompanhamento.</li>
+                <li>A cozinha prepara o pedido e atualiza o status.</li>
+                <li>O cliente retira o lanche no balcão quando o status for <strong>Pronto</strong>.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <!-- ---------- DIFERENCIAIS ---------- -->
+        <section id="diferenciais">
+            <h2>Por que escolher a FilaParaLanches?</h2>
+
+            <ul>
+                <li>Fila organizada e transparente do início ao fim.</li>
+                <li>Ingredientes frescos e preparo na hora.</li>
+                <li>Acompanhamento do pedido em tempo real.</li>
+                <li>Atendimento rápido no balcão e para retirada.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <!-- ---------- HORÁRIO DE FUNCIONAMENTO ---------- -->
+        <section id="horarios">
+            <h2>Horário de funcionamento</h2>
+
+            <table border="1">
+                <caption>Tabela de horários da lanchonete</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Dia da semana</th>
+                        <th scope="col">Abertura</th>
+                        <th scope="col">Fechamento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Segunda a quinta</td>
+                        <td>18:00</td>
+                        <td>23:00</td>
+                    </tr>
+                    <tr>
+                        <td>Sexta e sábado</td>
+                        <td>18:00</td>
+                        <td>00:30</td>
+                    </tr>
+                    <tr>
+                        <td>Domingo</td>
+                        <td>18:00</td>
+                        <td>22:00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- ---------- FORMULÁRIO INICIAL ---------- -->
+        <section id="novidades">
+            <h2>Receba nossas promoções</h2>
+
+            <p>Cadastre seu e-mail para receber as promoções da semana.</p>
+
+<form action="#" method="post" id="form-promocao" novalidate>
+    <fieldset>
+        <legend>Cadastro de novidades</legend>
+
+        <p>
+            <label for="email-promocao">E-mail:</label><br>
+            <input type="email" id="email-promocao" name="email" placeholder="seuemail@exemplo.com" required>
+        </p>
+
+        <p>
+            <button type="submit">Quero receber</button>
+        </p>
+
+        <p id="msg-promocao" class="form-msg" aria-live="polite"></p>
+    </fieldset>
+</form>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <!-- ==========================================================
+         RODAPÉ DO SITE
+         Presente em todas as páginas do site.
+         ========================================================== -->
+    <footer>
+        <h2>FilaParaLanches</h2>
+
+
+        <h3>Navegação</h3>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="./clientes/produtos.html">Produtos</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="./donos/caixa.html">Caixa</a></li>
+            <li><a href="./donos/cozinha.html">Cozinha</a></li>
+            <li><a href="./donos/estoque.html">Estoque</a></li>
+            <li><a href="./clientes/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+
+        <h3>Contato</h3>
+        <address>
+            Rua das Chamas, 123 - Centro<br>
+            Telefone: (00) 0000-0000<br>
+            E-mail: <a href="mailto:contato@filaparalanches.com.br">contato@filaparalanches.com.br</a>
+        </address>
+
+        <p><small>&copy; 2026 FilaParaLanches - Todos os direitos reservados.</small></p>
+    </footer>
+
+</body>
+</html>
