@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Equipe FilaParaLanches">
+    <meta name="description" content="FilaParaLanches - página de login de acesso ao sistema.">
+    <meta name="keywords" content="login, acesso, sistema, funcionários, fila">
+    <title>FilaParaLanches | Login</title>
+
+    <link rel="stylesheet" href="../../css/estilo.css">
+    <link rel="stylesheet" href="login.css">
+
+    <script src="../../js/global.js" defer></script>
+    <script src="login.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>FilaParaLanches</h1>
+        <p><em>Seu lanche na hora certa, sem bagunça na fila.</em></p>
+    </header>
+
+    <hr>
+
+    <nav>
+        <button type="button" class="menu-toggle" id="menu-toggle"
+                aria-expanded="false" aria-label="Abrir menu">☰</button>
+        <ul id="menu-principal">
+            <li><a href="../../index.html">Início</a></li>
+            <li><a href="../clientes/produtos/produtos.html">Produtos</a></li>
+            <li><a href="../contato/contato.html">Contato</a></li>
+            <li><a href="../login/login.html">Login</a></li>
+            <li><a href="../donos/caixa/caixa.html">Caixa</a></li>
+            <li><a href="../donos/cozinha/cozinha.html">Cozinha</a></li>
+            <li><a href="../donos/estoque/estoque.html">Estoque</a></li>
+            <li><a href="../clientes/acompanhamento/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <main>
+
+        <section id="titulo-login">
+            <h2>Acesso ao sistema</h2>
+
+            <p>
+                Utilize esta página para entrar na área restrita do
+                <strong>FilaParaLanches</strong>. O acesso é separado por tipo de usuário:
+                clientes acompanham pedidos e funcionários trabalham com as áreas
+                de caixa, cozinha e estoque.
+            </p>
+        </section>
+
+        <hr>
+
+        <!-- ---------- SESSÃO ATIVA (se já estiver logado) ---------- -->
+        <section id="sessao-ativa" class="oculto">
+            <h3>Você já está logado</h3>
+            <p id="sessao-info"></p>
+            <p>
+                <button type="button" id="btn-ir-area" class="botao-primario">
+                    Ir para minha área
+                </button>
+                <button type="button" id="btn-sair" class="botao-secundario">
+                    Sair
+                </button>
+            </p>
+        </section>
+
+        <hr id="hr-sessao" class="oculto">
+
+        <!-- ---------- FORMULÁRIO DE LOGIN ---------- -->
+        <section id="formulario-login">
+            <h3>Entrar no sistema</h3>
+
+            <form action="#" method="post" id="form-login" novalidate>
+                <fieldset>
+                    <legend>Dados de acesso</legend>
+
+                    <p>
+                        <label for="usuario">Usuário (e-mail): *</label>
+                        <input type="email" id="usuario" name="usuario"
+                               placeholder="seuemail@exemplo.com"
+                               autocomplete="username" required>
+                    </p>
+
+                    <p>
+                        <label for="senha">Senha: *</label>
+                        <input type="password" id="senha" name="senha"
+                               placeholder="Mínimo 6 caracteres"
+                               autocomplete="current-password"
+                               minlength="6" required>
+                        <span id="toggle-senha" class="toggle-senha" role="button"
+                              tabindex="0" aria-label="Mostrar/ocultar senha">👁️</span>
+                    </p>
+
+                    <p>
+                        <label for="tipo-acesso">Tipo de acesso: *</label>
+                        <select id="tipo-acesso" name="tipo" required>
+                            <option value="">Selecione uma opção</option>
+                            <option value="cliente">Cliente</option>
+                            <option value="dono">Dono</option>
+                            <option value="caixa">Funcionário - Caixa</option>
+                            <option value="cozinha">Funcionário - Cozinha</option>
+                        </select>
+                    </p>
+
+                    <p class="grupo-checkbox">
+                        <input type="checkbox" id="manter-conectado" name="manter">
+                        <label for="manter-conectado">Manter conectado por 7 dias</label>
+                    </p>
+
+                    <p>
+                        <button type="submit">Entrar</button>
+                        <button type="reset">Limpar</button>
+                    </p>
+
+                    <p id="msg-login" class="form-msg" aria-live="polite"></p>
+                </fieldset>
+            </form>
+
+            <p><small>Os campos com * são obrigatórios. A validação é feita em JavaScript.</small></p>
+
+            <p class="dica-contas">
+                <small>
+                    <strong>Contas de demonstração:</strong><br>
+                    Cliente: <code>cliente@teste.com</code> / <code>123456</code><br>
+                    Caixa: <code>caixa@teste.com</code> / <code>123456</code><br>
+                    Cozinha: <code>cozinha@teste.com</code> / <code>123456</code><br>
+                    Dono: <code>dono@teste.com</code> / <code>123456</code>
+                </small>
+            </p>
+        </section>
+
+        <hr>
+
+        <!-- ---------- ÁREAS DO SISTEMA ---------- -->
+        <section id="areas">
+            <h3>Áreas do sistema</h3>
+            <p>Cada tipo de acesso direciona o usuário para a sua área:</p>
+
+            <table>
+                <caption>Áreas disponíveis conforme o tipo de acesso</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Tipo de acesso</th>
+                        <th scope="col">Área</th>
+                        <th scope="col">Página</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cliente</td>
+                        <td>Acompanhamento do pedido</td>
+                        <td><a href="../clientes/acompanhamento/acompanhamento.html">Acompanhar</a></td>
+                    </tr>
+                    <tr>
+                        <td>Funcionário - Caixa</td>
+                        <td>Painel do caixa</td>
+                        <td><a href="../donos/caixa/caixa.html">Caixa</a></td>
+                    </tr>
+                    <tr>
+                        <td>Funcionário - Cozinha</td>
+                        <td>Fila da cozinha</td>
+                        <td><a href="../donos/cozinha/cozinha.html">Cozinha</a></td>
+                    </tr>
+                    <tr>
+                        <td>Dono</td>
+                        <td>Estoque e cardápio</td>
+                        <td><a href="../donos/estoque/estoque.html">Estoque</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <footer>
+        <h2>FilaParaLanches</h2>
+
+        <h3>Navegação</h3>
+        <ul>
+            <li><a href="../../../index.html">Início</a></li>
+            <li><a href="../clientes/produtos/produtos.html">Produtos</a></li>
+            <li><a href="../contato/contato.html">Contato</a></li>
+            <li><a href="../login/login.html">Login</a></li>
+            <li><a href="../donos/caixa/caixa.html">Caixa</a></li>
+            <li><a href="../donos/cozinha/cozinha.html">Cozinha</a></li>
+            <li><a href="../donos/estoque/estoque.html">Estoque</a></li>
+            <li><a href="../clientes/acompanhamento/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+
+        <h3>Contato</h3>
+        <address>
+            Rua das Chamas, 123 - Centro<br>
+            Telefone: (00) 0000-0000<br>
+            E-mail: <a href="mailto:contato@filaparalanches.com.br">contato@filaparalanches.com.br</a>
+        </address>
+
+        <p><small>&copy; 2026 FilaParaLanches - Todos os direitos reservados.</small></p>
+    </footer>
+
+</body>
+</html>

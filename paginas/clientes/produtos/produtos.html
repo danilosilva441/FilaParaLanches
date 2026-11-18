@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Equipe FilaParaLanches">
+    <meta name="description" content="FilaParaLanches - página de produtos com o cardápio da lanchonete.">
+    <meta name="keywords" content="lanches, cardápio, hambúrguer, produtos, preços">
+    <title>FilaParaLanches | Produtos</title>
+
+    <!-- CSS global (3 níveis acima) -->
+    <link rel="stylesheet" href="../../../css/estilo.css">
+    <!-- CSS específico desta página -->
+    <link rel="stylesheet" href="produtos.css">
+
+    <!-- Scripts -->
+    <script src="../../../js/global.js" defer></script>
+    <script src="produtos.js" defer></script>
+</head>
+<body>
+
+    <!-- ==========================================================
+         CABEÇALHO
+         ========================================================== -->
+    <header>
+        <h1>FilaParaLanches</h1>
+        <p><em>Seu lanche na hora certa, sem bagunça na fila.</em></p>
+    </header>
+
+    <hr>
+
+    <!-- ==========================================================
+         MENU DE NAVEGAÇÃO PRINCIPAL
+         ========================================================== -->
+    <nav>
+        <button type="button" class="menu-toggle" id="menu-toggle"
+                aria-expanded="false" aria-label="Abrir menu">☰</button>
+        <ul id="menu-principal">
+            <li><a href="../../../index.html">Início</a></li>
+            <li><a href="produtos.html">Produtos</a></li>
+            <li><a href="../../contato/contato.html">Contato</a></li>
+            <li><a href="../../login/login.html">Login</a></li>
+            <li><a href="../../donos/caixa/caixa.html">Caixa</a></li>
+            <li><a href="../../donos/cozinha/cozinha.html">Cozinha</a></li>
+            <li><a href="../../donos/estoque/estoque.html">Estoque</a></li>
+            <li><a href="../acompanhamento/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <!-- ==========================================================
+         CONTEÚDO PRINCIPAL
+         ========================================================== -->
+    <main>
+
+        <section id="titulo-produtos">
+            <h2>Nossos produtos</h2>
+            <p>
+                Confira abaixo o cardápio da FilaParaLanches. Os produtos estão
+                organizados por categoria para facilitar a escolha.
+            </p>
+        </section>
+
+        <hr>
+
+        <!-- ---------- FORMULÁRIO DE BUSCA ---------- -->
+        <section id="busca-produtos">
+            <h3>Buscar produto</h3>
+
+            <form action="#" method="get" id="form-busca">
+                <fieldset>
+                    <legend>Filtro do cardápio</legend>
+
+                    <p>
+                        <label for="nome-produto">Nome do produto:</label>
+                        <input type="search" id="nome-produto" name="nome"
+                               placeholder="Ex.: X-Burger" autocomplete="off">
+                    </p>
+
+                    <p>
+                        <label for="categoria-produto">Categoria:</label>
+                        <select id="categoria-produto" name="categoria">
+                            <option value="">Todas as categorias</option>
+                            <option value="lanches">Lanches</option>
+                            <option value="porcoes">Porções</option>
+                            <option value="bebidas">Bebidas</option>
+                            <option value="sobremesas">Sobremesas</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <button type="submit">Buscar</button>
+                        <button type="reset" id="btn-limpar">Limpar</button>
+                    </p>
+
+                    <p id="msg-busca" class="form-msg" aria-live="polite"></p>
+                </fieldset>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- ---------- CATEGORIA: LANCHES ---------- -->
+        <section id="lanches" class="categoria" data-categoria="lanches">
+            <h3>Lanches</h3>
+
+            <div class="grade-produtos">
+                <!-- Preenchido pelo JS via array de produtos -->
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- ---------- CATEGORIA: PORÇÕES ---------- -->
+        <section id="porcoes" class="categoria" data-categoria="porcoes">
+            <h3>Porções</h3>
+            <div class="grade-produtos"></div>
+        </section>
+
+        <hr>
+
+        <!-- ---------- CATEGORIA: BEBIDAS ---------- -->
+        <section id="bebidas" class="categoria" data-categoria="bebidas">
+            <h3>Bebidas</h3>
+            <div class="grade-produtos"></div>
+        </section>
+
+        <hr>
+
+        <!-- ---------- CATEGORIA: SOBREMESAS ---------- -->
+        <section id="sobremesas" class="categoria" data-categoria="sobremesas">
+            <h3>Sobremesas</h3>
+            <div class="grade-produtos"></div>
+        </section>
+
+        <hr>
+
+        <!-- ---------- OBSERVAÇÕES ---------- -->
+        <section id="observacoes">
+            <h3>Observações</h3>
+            <ul>
+                <li>Os preços podem sofrer alteração sem aviso prévio.</li>
+                <li>Imagens dos produtos serão adicionadas na próxima entrega.</li>
+                <li>Pedidos para retirada no balcão.</li>
+            </ul>
+            <p>
+                <a href="../../contato/contato.html">Fale com a gente</a>
+                para tirar dúvidas sobre o cardápio.
+            </p>
+        </section>
+        
+
+    </main>
+
+    <hr>
+
+    <!-- ==========================================================
+         RODAPÉ
+         ========================================================== -->
+    <footer>
+        <h2>FilaParaLanches</h2>
+
+        <h3>Navegação</h3>
+        <ul>
+            <li><a href="../../../index.html">Início</a></li>
+            <li><a href="produtos.html">Produtos</a></li>
+            <li><a href="../../contato/contato.html">Contato</a></li>
+            <li><a href="../../login/login.html">Login</a></li>
+            <li><a href="../../donos/caixa/caixa.html">Caixa</a></li>
+            <li><a href="../../donos/cozinha/cozinha.html">Cozinha</a></li>
+            <li><a href="../../donos/estoque/estoque.html">Estoque</a></li>
+            <li><a href="../acompanhamento/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+
+        <h3>Contato</h3>
+        <address>
+            Rua das Chamas, 123 - Centro<br>
+            Telefone: (00) 0000-0000<br>
+            E-mail: <a href="mailto:contato@filaparalanches.com.br">contato@filaparalanches.com.br</a>
+        </address>
+
+        <p><small>&copy; 2026 FilaParaLanches - Todos os direitos reservados.</small></p>
+    </footer>
+
+</body>
+</html>

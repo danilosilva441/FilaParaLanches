@@ -1,51 +1,60 @@
-/* ==========================================================
-   FilaParaLanches - index.js
-   Validação do cadastro de promoções (página inicial)
-   ========================================================== */
-document.addEventListener("DOMContentLoaded", function () {
+// ============ FORMULÁRIO DE PROMOÇÃO ============
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('form-promocao');
+  if (!form) return;
 
-    const formPromo = document.getElementById("form-promocao");
-    const msg = document.getElementById("msg-promocao");
+  const campoEmail = document.getElementById('email-promocao');
+  const mensagem = document.getElementById('msg-promocao');
 
-    if (!formPromo || !msg) return; // não está na página inicial
+  // ---- Validação em tempo real ----
+  campoEmail.addEventListener('blur', () => {
+    const valido = FilaHelpers.emailValido(campoEmail.value);
+    FilaHelpers.marcarCampo(campoEmail, valido);
+  });
 
-    const campoEmail = document.getElementById("email-promocao");
+  campoEmail.addEventListener('input', () => {
+    if (campoEmail.classList.contains('invalido')) {
+      const ok = FilaHelpers.emailValido(campoEmail.value);
+      FilaHelpers.marcarCampo(campoEmail, ok);
+    }
+  });
 
-    /* ---------- Estrutura de dados: array de objetos ---------- */
-    let emailsCadastrados = [];
+  // ---- Envio ----
+  form.addEventListener('submit', (evento) => {
+    evento.preventDefault(); // intercepta o envio
 
-    formPromo.addEventListener("submit", function (evento) {
-        evento.preventDefault();
+    const email = campoEmail.value.trim();
 
-        const email = campoEmail.value.trim();
-        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (!email) {
+      mostrarMensagem('Por favor, informe seu e-mail.', 'erro');
+      campoEmail.focus();
+      return;
+    }
 
-        limparEstado(campoEmail, msg);
+    if (!FilaHelpers.emailValido(email)) {
+      mostrarMensagem('E-mail inválido. Exemplo: nome@dominio.com', 'erro');
+      campoEmail.focus();
+      return;
+    }
 
-        if (email === "") {
-            marcarErro(campoEmail, msg, "Digite o seu e-mail.");
-            return;
-        }
-        if (!regexEmail.test(email)) {
-            marcarErro(campoEmail, msg, "Formato inválido. Ex.: nome@dominio.com");
-            return;
-        }
-        if (emailsCadastrados.some(function (item) { return item.email === email; })) {
-            marcarErro(campoEmail, msg, "Este e-mail já está cadastrado!");
-            return;
-        }
+    // Simula cadastro (em um sistema real, envie via fetch para o backend)
+    const inscritos = JSON.parse(localStorage.getItem('promocoes') || '[]');
 
-        emailsCadastrados.push({ email: email, data: new Date().toLocaleString("pt-BR") });
+    if (inscritos.includes(email.toLowerCase())) {
+      mostrarMensagem('Este e-mail já está cadastrado! 🎉', 'erro');
+      return;
+    }
 
-        msg.textContent = "Cadastro realizado com sucesso! 🍔";
-        msg.classList.add("sucesso");
-        formPromo.reset();
-        console.log("E-mails cadastrados:", emailsCadastrados);
-    });
+    inscritos.push(email.toLowerCase());
+    localStorage.setItem('promocoes', JSON.stringify(inscritos));
 
-    campoEmail.addEventListener("input", function () {
-        this.classList.remove("erro");
-        msg.textContent = "";
-        msg.className = "form-msg";
-    });
+    mostrarMensagem('Cadastro realizado com sucesso! 🎉', 'sucesso');
+    form.reset();
+    campoEmail.classList.remove('valido', 'invalido');
+  });
+
+  function mostrarMensagem(texto, tipo) {
+    mensagem.textContent = texto;
+    mensagem.className = `form-msg ${tipo}`;
+  }
 });

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Equipe FilaParaLanches">
+    <meta name="description"
+        content="FilaParaLanches - painel do caixa com abertura, pedidos em atendimento e fechamento.">
+    <meta name="keywords" content="caixa, pagamento, pedidos, dinheiro, cartão, pix">
+    <title>FilaParaLanches | Caixa</title>
+
+    <link rel="stylesheet" href="../../../css/estilo.css">
+    <link rel="stylesheet" href="caixa.css">
+
+    <script src="../../../js/global.js" defer></script>
+    <script src="caixa.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>FilaParaLanches</h1>
+        <p><em>Seu lanche na hora certa, sem bagunça na fila.</em></p>
+    </header>
+
+    <hr>
+
+    <nav>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false"
+            aria-label="Abrir menu">☰</button>
+        <ul id="menu-principal">
+            <li><a href="../../../index.html">Início</a></li>
+            <li><a href="../../clientes/produtos/produtos.html">Produtos</a></li>
+            <li><a href="../../contato/contato.html">Contato</a></li>
+            <li><a href="../../login/login.html">Login</a></li>
+            <li><a href="../caixa/caixa.html">Caixa</a></li>
+            <li><a href="../cozinha/cozinha.html">Cozinha</a></li>
+            <li><a href="../estoque/estoque.html">Estoque</a></li>
+            <li><a href="../../clientes/acompanhamento/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <main>
+
+        <section id="titulo-caixa">
+            <h2>Painel do Caixa</h2>
+            <p>
+                Abra o caixa, registre pagamentos e acompanhe os totais do dia.
+                Os dados abaixo são carregados a partir dos pedidos reais da fila.
+            </p>
+        </section>
+
+        <hr>
+
+        <!-- ---------- ESTADO DO CAIXA ---------- -->
+        <section id="estado-caixa">
+            <h3>Estado do caixa</h3>
+            <p id="status-caixa" class="badge badge-fechado">Caixa fechado</p>
+        </section>
+
+        <hr>
+
+        <!-- ---------- ABERTURA DO CAIXA ---------- -->
+        <section id="abertura-caixa">
+            <h3>Abertura do caixa</h3>
+
+            <form action="#" method="post" id="form-abertura" novalidate>
+                <fieldset>
+                    <legend>Abrir caixa</legend>
+
+                    <p>
+                        <label for="valor-inicial">Valor inicial (troco): *</label>
+                        <input type="number" id="valor-inicial" name="valor-inicial" min="0" step="0.01"
+                            placeholder="0,00" required>
+                    </p>
+
+                    <p>
+                        <label for="funcionario-caixa">Funcionário responsável: *</label>
+                        <input type="text" id="funcionario-caixa" name="funcionario" placeholder="Nome do funcionário"
+                            required>
+                    </p>
+
+                    <p>
+                        <label for="observacao-abertura">Observação:</label>
+                        <textarea id="observacao-abertura" name="observacao" rows="3"
+                            placeholder="Observações sobre a abertura..."></textarea>
+                    </p>
+
+                    <p>
+                        <button type="submit">Abrir caixa</button>
+                        <button type="reset">Limpar</button>
+                    </p>
+
+                    <p id="msg-abertura" class="form-msg" aria-live="polite"></p>
+                </fieldset>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- ---------- PEDIDOS EM ATENDIMENTO ---------- -->
+        <section id="pedidos-caixa">
+            <h3>Pedidos em atendimento</h3>
+
+            <p>
+                <button type="button" id="btn-atualizar" class="botao-secundario">
+                    🔄 Atualizar lista
+                </button>
+            </p>
+
+            <table>
+                <caption>Fila de pedidos para cobrança</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Nº</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Itens</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Pagamento</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="corpo-pedidos">
+                    <!-- preenchido pelo JS -->
+                </tbody>
+            </table>
+
+            <p id="msg-pedidos" class="form-msg" aria-live="polite"></p>
+        </section>
+
+        <hr>
+
+        <!-- ---------- REGISTRAR PAGAMENTO ---------- -->
+        <section id="pagamento-caixa">
+            <h3>Registrar pagamento</h3>
+
+            <form action="#" method="post" id="form-pagamento" novalidate>
+                <fieldset>
+                    <legend>Dados do pagamento</legend>
+
+                    <p>
+                        <label for="nro-pedido-pag">Número do pedido: *</label>
+                        <input type="number" id="nro-pedido-pag" name="nro-pedido" min="1" required>
+                    </p>
+
+                    <p>
+                        <label for="valor-pag">Valor recebido: *</label>
+                        <input type="number" id="valor-pag" name="valor" min="0" step="0.01" placeholder="0,00"
+                            required>
+                    </p>
+
+                    <p id="troco-info" class="troco-info"></p>
+
+                    <p>Forma de pagamento: *</p>
+
+                    <p class="grupo-radio">
+                        <input type="radio" id="pag-dinheiro" name="pagamento" value="dinheiro">
+                        <label for="pag-dinheiro">Dinheiro</label>
+
+                        <input type="radio" id="pag-cartao" name="pagamento" value="cartao">
+                        <label for="pag-cartao">Cartão</label>
+
+                        <input type="radio" id="pag-pix" name="pagamento" value="pix">
+                        <label for="pag-pix">Pix</label>
+                    </p>
+
+                    <p>
+                        <button type="submit">Confirmar pagamento</button>
+                        <button type="reset" id="btn-limpar-pag">Limpar</button>
+                    </p>
+
+                    <p id="msg-pagamento" class="form-msg" aria-live="polite"></p>
+                </fieldset>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- ---------- RESUMO E FECHAMENTO ---------- -->
+        <section id="fechamento-caixa">
+            <h3>Resumo do caixa</h3>
+
+            <table>
+                <caption>Totais do dia (calculados a partir dos pagamentos)</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Valor</th>
+                    </tr>
+                </thead>
+                <tbody id="corpo-resumo-caixa">
+                    <!-- preenchido por JS -->
+                </tbody>
+            </table>
+
+            <p>
+                <button type="button" id="btn-fechar-caixa" class="botao-perigo">
+                    Fechar caixa do dia
+                </button>
+            </p>
+            <p id="msg-fechamento" class="form-msg" aria-live="polite"></p>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <footer>
+        <h2>FilaParaLanches</h2>
+
+        <h3>Navegação</h3>
+        <ul>
+            <li><a href="../../../index.html">Início</a></li>
+            <li><a href="../../clientes/produtos/produtos.html">Produtos</a></li>
+            <li><a href="../../contato/contato.html">Contato</a></li>
+            <li><a href="../../login/login.html">Login</a></li>
+            <li><a href="../caixa/caixa.html">Caixa</a></li>
+            <li><a href="../cozinha/cozinha.html">Cozinha</a></li>
+            <li><a href="../estoque/estoque.html">Estoque</a></li>
+            <li><a href="../../clientes/acompanhamento/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+
+        <h3>Contato</h3>
+        <address>
+            Rua das Chamas, 123 - Centro<br>
+            Telefone: (00) 0000-0000<br>
+            E-mail: <a href="mailto:contato@filaparalanches.com.br">contato@filaparalanches.com.br</a>
+        </address>
+
+        <p><small>&copy; 2026 FilaParaLanches - Todos os direitos reservados.</small></p>
+    </footer>
+
+</body>
+
+</html>

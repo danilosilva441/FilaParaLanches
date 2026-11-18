@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Equipe FilaParaLanches">
-    <meta name="description" content="FilaParaLanches - lanchonete com pedidos organizados por fila. Página inicial do projeto.">
+    <meta name="description"
+        content="FilaParaLanches - lanchonete com pedidos organizados por fila. Página inicial do projeto.">
     <meta name="keywords" content="lanches, hambúrguer, fila, pedidos, lanchonete">
     <title>FilaParaLanches | Página Inicial</title>
-    <title>FilaParaLanches | Página Inicial</title>
-<link rel="stylesheet" href="css/estilo.css">
-<link rel="stylesheet" href="css/index.css">
-<script src="js/global.js" defer></script>
-<script src="js/index.js" defer></script>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/global.js" defer></script>
+    <script src="js/index.js" defer></script>
 </head>
+
 <body>
 
     <!-- ==========================================================
@@ -30,20 +32,20 @@
          MENU DE NAVEGAÇÃO PRINCIPAL
          Presente em todas as páginas do site.
          ========================================================== -->
-<nav>
-    <button type="button" class="menu-toggle" id="menu-toggle"
-            aria-expanded="false" aria-label="Abrir menu">☰</button>
-    <ul id="menu-principal">
-        <li><a href="index.html">Início</a></li>
-        <li><a href="./clientes/produtos.html">Produtos</a></li>
-        <li><a href="contato.html">Contato</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="./donos/caixa.html">Caixa</a></li>
-        <li><a href="./donos/cozinha.html">Cozinha</a></li>
-        <li><a href="./donos/estoque.html">Estoque</a></li>
-        <li><a href="./clientes/acompanhamento.html">Acompanhar</a></li>
-    </ul>
-</nav>
+    <nav>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false"
+            aria-label="Abrir menu">☰</button>
+        <ul id="menu-principal">
+            <li><a href="./index.html">Início</a></li>
+            <li><a href="./paginas/clientes/produtos/produtos.html">Produtos</a></li>
+            <li><a href="./paginas/contato/contato.html">Contato</a></li>
+            <li><a href="./paginas/login/login.html">Login</a></li>
+            <li><a href="./paginas/donos/caixa/caixa.html">Caixa</a></li>
+            <li><a href="./paginas/donos/cozinha/cozinha.html">Cozinha</a></li>
+            <li><a href="./paginas/donos/estoque/estoque.html">Estoque</a></li>
+            <li><a href="./paginas/clientes/acompanhamento/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+    </nav>
 
     <hr>
 
@@ -73,7 +75,8 @@
             <p>O atendimento acontece em quatro etapas simples:</p>
 
             <ol>
-                <li>O cliente escolhe o lanche na <a href="./clientes/produtos.html">página de produtos</a>.</li>
+                <li>O cliente escolhe o lanche na <a href="./paginas/clientes/produtos/produtos.html">página de
+                        produtos</a>.</li>
                 <li>O pedido entra na fila e recebe um número de acompanhamento.</li>
                 <li>A cozinha prepara o pedido e atualiza o status.</li>
                 <li>O cliente retira o lanche no balcão quando o status for <strong>Pronto</strong>.</li>
@@ -137,22 +140,23 @@
 
             <p>Cadastre seu e-mail para receber as promoções da semana.</p>
 
-<form action="#" method="post" id="form-promocao" novalidate>
-    <fieldset>
-        <legend>Cadastro de novidades</legend>
+            <form action="#" method="post" id="form-promocao" novalidate>
+                <fieldset>
+                    <legend>Cadastro de novidades</legend>
 
-        <p>
-            <label for="email-promocao">E-mail:</label><br>
-            <input type="email" id="email-promocao" name="email" placeholder="seuemail@exemplo.com" required>
-        </p>
+                    <p>
+                        <label for="email-promocao">E-mail:</label><br>
+                        <input type="email" id="email-promocao" name="email" placeholder="seuemail@exemplo.com"
+                            required>
+                    </p>
 
-        <p>
-            <button type="submit">Quero receber</button>
-        </p>
+                    <p>
+                        <button type="submit">Quero receber</button>
+                    </p>
 
-        <p id="msg-promocao" class="form-msg" aria-live="polite"></p>
-    </fieldset>
-</form>
+                    <p id="msg-promocao" class="form-msg" aria-live="polite"></p>
+                </fieldset>
+            </form>
         </section>
 
     </main>
@@ -169,14 +173,14 @@
 
         <h3>Navegação</h3>
         <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="./clientes/produtos.html">Produtos</a></li>
-            <li><a href="contato.html">Contato</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="./donos/caixa.html">Caixa</a></li>
-            <li><a href="./donos/cozinha.html">Cozinha</a></li>
-            <li><a href="./donos/estoque.html">Estoque</a></li>
-            <li><a href="./clientes/acompanhamento.html">Acompanhar</a></li>
+            <li><a href="./index.html">Início</a></li>
+            <li><a href="./paginas/clientes/produtos/produtos.html">Produtos</a></li>
+            <li><a href="./paginas/contato/contato.html">Contato</a></li>
+            <li><a href="./paginas/login/login.html">Login</a></li>
+            <li><a href="./paginas/donos/caixa/caixa.html">Caixa</a></li>
+            <li><a href="./paginas/donos/cozinha/cozinha.html">Cozinha</a></li>
+            <li><a href="./paginas/donos/estoque/estoque.html">Estoque</a></li>
+            <li><a href="./paginas/clientes/acompanhamento/acompanhamento.html">Acompanhar</a></li>
         </ul>
 
         <h3>Contato</h3>
@@ -190,4 +194,5 @@
     </footer>
 
 </body>
+
 </html>

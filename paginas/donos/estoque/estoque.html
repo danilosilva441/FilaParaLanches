@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Equipe FilaParaLanches">
+    <meta name="description" content="FilaParaLanches - controle de estoque e cardápio de produtos.">
+    <meta name="keywords" content="estoque, produtos, cardápio, quantidade, estoque baixo">
+    <title>FilaParaLanches | Estoque</title>
+
+    <link rel="stylesheet" href="../../../css/estilo.css">
+    <link rel="stylesheet" href="estoque.css">
+
+    <script src="../../../js/global.js" defer></script>
+    <script src="estoque.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>FilaParaLanches</h1>
+        <p><em>Seu lanche na hora certa, sem bagunça na fila.</em></p>
+    </header>
+
+    <hr>
+
+    <nav>
+        <button type="button" class="menu-toggle" id="menu-toggle"
+                aria-expanded="false" aria-label="Abrir menu">☰</button>
+        <ul id="menu-principal">
+            <li><a href="../../../index.html">Início</a></li>
+            <li><a href="../../clientes/produtos/produtos.html">Produtos</a></li>
+            <li><a href="../../contato/contato.html">Contato</a></li>
+            <li><a href="../../login/login.html">Login</a></li>
+            <li><a href="../caixa/caixa.html">Caixa</a></li>
+            <li><a href="../cozinha/cozinha.html">Cozinha</a></li>
+            <li><a href="../estoque/estoque.html">Estoque</a></li>
+            <li><a href="../../clientes/acompanhamento/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <main>
+
+        <section id="titulo-estoque">
+            <h2>Estoque e Cardápio</h2>
+            <p>
+                Cadastre, edite e remova produtos do cardápio. O sistema avisa
+                automaticamente quando o estoque estiver baixo ou zerado.
+            </p>
+
+            <p>
+                <strong>Resumo:</strong>
+                <span id="resumo-total" class="resumo-chip">0 produtos</span>
+                <span id="resumo-baixo" class="resumo-chip chip-alerta">0 em alerta</span>
+                <span id="resumo-zerado" class="resumo-chip chip-erro">0 zerados</span>
+            </p>
+        </section>
+
+        <hr>
+
+        <!-- ---------- FILTROS ---------- -->
+        <section id="filtros-estoque">
+            <h3>Filtrar produtos</h3>
+
+            <form action="#" method="get" id="form-filtro" novalidate>
+                <fieldset>
+                    <legend>Filtro</legend>
+
+                    <p>
+                        <label for="busca-estoque">Buscar:</label>
+                        <input type="search" id="busca-estoque"
+                               placeholder="Nome ou código" autocomplete="off">
+                    </p>
+
+                    <p>
+                        <label for="filtro-categoria">Categoria:</label>
+                        <select id="filtro-categoria">
+                            <option value="">Todas</option>
+                            <option value="lanches">Lanches</option>
+                            <option value="porcoes">Porções</option>
+                            <option value="bebidas">Bebidas</option>
+                            <option value="sobremesas">Sobremesas</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="filtro-situacao">Situação:</label>
+                        <select id="filtro-situacao">
+                            <option value="">Todas</option>
+                            <option value="ok">OK</option>
+                            <option value="baixo">Estoque baixo</option>
+                            <option value="zerado">Zerado</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <button type="button" id="btn-limpar-filtro"
+                                class="botao-secundario">Limpar filtros</button>
+                    </p>
+                </fieldset>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- ---------- LISTAGEM ---------- -->
+        <section id="lista-produtos">
+            <h3>Produtos cadastrados</h3>
+
+            <table>
+                <caption>Lista geral de produtos do estoque</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Qtd.</th>
+                        <th scope="col">Mín.</th>
+                        <th scope="col">Situação</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="corpo-estoque">
+                    <!-- preenchido por JS -->
+                </tbody>
+            </table>
+
+            <p id="msg-estoque" class="form-msg" aria-live="polite"></p>
+        </section>
+
+        <hr>
+
+        <!-- ---------- CADASTRO / EDIÇÃO ---------- -->
+        <section id="cadastro-produto">
+            <h3 id="titulo-form-estoque">Cadastrar novo produto</h3>
+
+            <form action="#" method="post" id="form-produto" novalidate>
+                <fieldset>
+                    <legend id="legend-form-estoque">Dados do produto</legend>
+
+                    <input type="hidden" id="codigo-edicao" value="">
+
+                    <p>
+                        <label for="nome-produto-est">Nome do produto: *</label>
+                        <input type="text" id="nome-produto-est" name="nome"
+                               placeholder="Ex.: X-Egg" maxlength="40" required>
+                    </p>
+
+                    <p>
+                        <label for="categoria-produto-est">Categoria: *</label>
+                        <select id="categoria-produto-est" name="categoria" required>
+                            <option value="">Selecione</option>
+                            <option value="lanches">Lanches</option>
+                            <option value="porcoes">Porções</option>
+                            <option value="bebidas">Bebidas</option>
+                            <option value="sobremesas">Sobremesas</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="preco-produto-est">Preço (R$): *</label>
+                        <input type="number" id="preco-produto-est" name="preco"
+                               min="0" step="0.01" placeholder="0,00" required>
+                    </p>
+
+                    <p>
+                        <label for="quantidade-produto-est">Quantidade em estoque: *</label>
+                        <input type="number" id="quantidade-produto-est" name="quantidade"
+                               min="0" required>
+                    </p>
+
+                    <p>
+                        <label for="estoque-minimo-est">Estoque mínimo: *</label>
+                        <input type="number" id="estoque-minimo-est" name="estoque-minimo"
+                               min="0" required>
+                    </p>
+
+                    <p>
+                        <button type="submit" id="btn-salvar-produto">Cadastrar produto</button>
+                        <button type="button" id="btn-cancelar-edicao"
+                                class="botao-secundario" hidden>Cancelar edição</button>
+                        <button type="reset">Limpar</button>
+                    </p>
+
+                    <p id="msg-form-produto" class="form-msg" aria-live="polite"></p>
+                </fieldset>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- ---------- ALERTA DE REPOSIÇÃO ---------- -->
+        <section id="estoque-baixo">
+            <h3>Alerta de reposição</h3>
+
+            <table>
+                <caption>Produtos que precisam de reposição</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Qtd.</th>
+                        <th scope="col">Mín.</th>
+                        <th scope="col">Situação</th>
+                    </tr>
+                </thead>
+                <tbody id="corpo-alerta">
+                    <!-- preenchido por JS -->
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <footer>
+        <h2>FilaParaLanches</h2>
+
+        <h3>Navegação</h3>
+        <ul>
+            <li><a href="../../../index.html">Início</a></li>
+            <li><a href="../../clientes/produtos/produtos.html">Produtos</a></li>
+            <li><a href="../../contato/contato.html">Contato</a></li>
+            <li><a href="../../login/login.html">Login</a></li>
+            <li><a href="../caixa/caixa.html">Caixa</a></li>
+            <li><a href="../cozinha/cozinha.html">Cozinha</a></li>
+            <li><a href="../estoque/estoque.html">Estoque</a></li>
+            <li><a href="../../clientes/acompanhamento/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+
+        <h3>Contato</h3>
+        <address>
+            Rua das Chamas, 123 - Centro<br>
+            Telefone: (00) 0000-0000<br>
+            E-mail: <a href="mailto:contato@filaparalanches.com.br">contato@filaparalanches.com.br</a>
+        </address>
+
+        <p><small>&copy; 2026 FilaParaLanches - Todos os direitos reservados.</small></p>
+    </footer>
+
+</body>
+</html>

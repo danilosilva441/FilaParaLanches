@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,21 @@
     <meta name="description" content="FilaParaLanches - página de contato com formulário de atendimento.">
     <meta name="keywords" content="contato, lanches, atendimento, formulário, lanchonete">
     <title>FilaParaLanches | Contato</title>
+
+    <!-- CSS global (2 níveis acima) -->
+    <link rel="stylesheet" href="../../css/estilo.css">
+    <!-- CSS específico desta página -->
+    <link rel="stylesheet" href="contato.css">
+
+    <!-- Scripts -->
+    <script src="../../js/global.js" defer></script>
+    <script src="contato.js" defer></script>
 </head>
+
 <body>
 
     <!-- ==========================================================
-         CABEÇALHO DO SITE
+         CABEÇALHO
          ========================================================== -->
     <header>
         <h1>FilaParaLanches</h1>
@@ -21,31 +32,32 @@
     <hr>
 
     <!-- ==========================================================
-         MENU DE NAVEGAÇÃO PRINCIPAL
+         MENU
          ========================================================== -->
     <nav>
-        <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href=".clientes/produtos.html">Produtos</a></li>
-            <li><a href="./contato.html">Contato</a></li>
-            <li><a href="./login.html">Login</a></li>
-            <li><a href="./donos/caixa.html">Caixa</a></li>
-            <li><a href="./donos/cozinha.html">Cozinha</a></li>
-            <li><a href="./donos/estoque.html">Estoque</a></li>
-            <li><a href="./clientes/acompanhamento.html">Acompanhar</a></li>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false"
+            aria-label="Abrir menu">☰</button>
+        <ul id="menu-principal">
+            <li><a href="../../index.html">Início</a></li>
+            <li><a href="../clientes/produtos/produtos.html">Produtos</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="../login/login.html">Login</a></li>
+            <li><a href="../donos/caixa/caixa.html">Caixa</a></li>
+            <li><a href="../donos/cozinha/cozinha.html">Cozinha</a></li>
+            <li><a href="../donos/estoque/estoque.html">Estoque</a></li>
+            <li><a href="../clientes/acompanhamento/acompanhamento.html">Acompanhar</a></li>
         </ul>
     </nav>
 
     <hr>
 
     <!-- ==========================================================
-         CONTEÚDO PRINCIPAL - CONTATO
+         CONTEÚDO PRINCIPAL
          ========================================================== -->
     <main>
 
         <section id="titulo-contato">
             <h2>Fale com a gente</h2>
-
             <p>
                 Tem alguma dúvida, sugestão ou reclamação? Preencha o formulário
                 abaixo e a nossa equipe responderá o mais breve possível.
@@ -58,29 +70,32 @@
         <section id="formulario-contato">
             <h3>Formulário de contato</h3>
 
-            <form action="#" method="post">
+            <form action="#" method="post" id="form-contato" novalidate>
 
                 <!-- DADOS PESSOAIS -->
                 <fieldset>
                     <legend>Dados pessoais</legend>
 
                     <p>
-                        <label for="nome">Nome completo: *</label><br>
-                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" size="40" required>
+                        <label for="nome">Nome completo: *</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo"
+                            autocomplete="name" required>
                     </p>
 
                     <p>
-                        <label for="email">E-mail: *</label><br>
-                        <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" size="40" required>
+                        <label for="email">E-mail: *</label>
+                        <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com"
+                            autocomplete="email" required>
                     </p>
 
                     <p>
-                        <label for="telefone">Telefone:</label><br>
-                        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" size="20">
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(11) 91234-5678" autocomplete="tel"
+                            maxlength="15">
                     </p>
 
                     <p>
-                        <label for="nascimento">Data de nascimento:</label><br>
+                        <label for="nascimento">Data de nascimento:</label>
                         <input type="date" id="nascimento" name="nascimento">
                     </p>
                 </fieldset>
@@ -90,7 +105,7 @@
                     <legend>Mensagem</legend>
 
                     <p>
-                        <label for="assunto">Assunto: *</label><br>
+                        <label for="assunto">Assunto: *</label>
                         <select id="assunto" name="assunto" required>
                             <option value="">Selecione uma opção</option>
                             <option value="duvida">Dúvida sobre o cardápio</option>
@@ -102,8 +117,10 @@
                     </p>
 
                     <p>
-                        <label for="mensagem">Mensagem: *</label><br>
-                        <textarea id="mensagem" name="mensagem" rows="6" cols="50" placeholder="Escreva sua mensagem aqui..." required></textarea>
+                        <label for="mensagem">Mensagem: *</label>
+                        <textarea id="mensagem" name="mensagem" rows="6" placeholder="Escreva sua mensagem aqui..."
+                            maxlength="1000" required></textarea>
+                        <small id="contador-msg" class="contador-caracteres">0 / 1000</small>
                     </p>
                 </fieldset>
 
@@ -113,24 +130,24 @@
 
                     <p>Como prefere ser respondido?</p>
 
-                    <p>
+                    <p class="grupo-radio">
                         <input type="radio" id="pref-email" name="preferencia" value="email" checked>
-                        <label for="pref-email">Por e-mail</label><br>
+                        <label for="pref-email">Por e-mail</label>
 
                         <input type="radio" id="pref-telefone" name="preferencia" value="telefone">
-                        <label for="pref-telefone">Por telefone</label><br>
+                        <label for="pref-telefone">Por telefone</label>
 
                         <input type="radio" id="pref-whatsapp" name="preferencia" value="whatsapp">
                         <label for="pref-whatsapp">Por WhatsApp</label>
                     </p>
 
-                    <p>
-                        <input type="checkbox" id="aceite" name="aceite" value="sim" required>
+                    <p class="grupo-checkbox">
+                        <input type="checkbox" id="aceite" name="aceite" required>
                         <label for="aceite">Autorizo o uso dos meus dados para retorno do contato. *</label>
                     </p>
 
-                    <p>
-                        <input type="checkbox" id="newsletter" name="newsletter" value="sim">
+                    <p class="grupo-checkbox">
+                        <input type="checkbox" id="newsletter" name="newsletter">
                         <label for="newsletter">Desejo receber promoções por e-mail.</label>
                     </p>
                 </fieldset>
@@ -138,10 +155,13 @@
                 <!-- BOTÕES -->
                 <p>
                     <button type="submit">Enviar mensagem</button>
-                    <button type="reset">Limpar formulário</button>
+                    <button type="reset" id="btn-limpar-contato">Limpar formulário</button>
                 </p>
 
                 <p><small>Os campos marcados com * são obrigatórios.</small></p>
+
+                <!-- MENSAGEM DE FEEDBACK -->
+                <p id="msg-contato" class="form-msg" aria-live="polite"></p>
 
             </form>
         </section>
@@ -163,7 +183,7 @@
 
             <h4>Horário de atendimento</h4>
 
-            <table border="1">
+            <table>
                 <caption>Horários de atendimento da lanchonete</caption>
                 <thead>
                     <tr>
@@ -193,22 +213,21 @@
     <hr>
 
     <!-- ==========================================================
-         RODAPÉ DO SITE
+         RODAPÉ
          ========================================================== -->
     <footer>
         <h2>FilaParaLanches</h2>
 
-
         <h3>Navegação</h3>
         <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href=".clientes/produtos.html">Produtos</a></li>
-            <li><a href="./contato.html">Contato</a></li>
-            <li><a href="./login.html">Login</a></li>
-            <li><a href="./donos/caixa.html">Caixa</a></li>
-            <li><a href="./donos/cozinha.html">Cozinha</a></li>
-            <li><a href="./donos/estoque.html">Estoque</a></li>
-            <li><a href="./clientes/acompanhamento.html">Acompanhar</a></li>
+            <li><a href="../../index.html">Início</a></li>
+            <li><a href="../clientes/produtos/produtos.html">Produtos</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="../login/login.html">Login</a></li>
+            <li><a href="../donos/caixa/caixa.html">Caixa</a></li>
+            <li><a href="../donos/cozinha/cozinha.html">Cozinha</a></li>
+            <li><a href="../donos/estoque/estoque.html">Estoque</a></li>
+            <li><a href="../clientes/acompanhamento/acompanhamento.html">Acompanhar</a></li>
         </ul>
 
         <h3>Contato</h3>
@@ -222,4 +241,5 @@
     </footer>
 
 </body>
+
 </html>

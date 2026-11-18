@@ -1,0 +1,191 @@
+/* ============================================================
+   ESTILOS ESPECÍFICOS DA PÁGINA DE PRODUTOS
+   (depende de css/estilo.css já carregado)
+   ============================================================ */
+
+/* Filtro de busca */
+#form-busca fieldset {
+  display: grid;
+  gap: 0.8rem;
+}
+
+#form-busca p {
+  margin: 0;
+}
+
+#form-busca button {
+  margin-right: 0.5rem;
+}
+
+/* Grade de produtos (substitui as tabelas) */
+.grade-produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* Card individual */
+.card-produto {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: transform 0.15s, box-shadow 0.15s;
+  border-top: 4px solid var(--cor-secundaria);
+}
+
+.card-produto:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-produto .codigo {
+  font-size: 0.75rem;
+  color: var(--cor-cinza);
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.card-produto h4 {
+  font-size: 1.15rem;
+  color: var(--cor-escura);
+}
+
+.card-produto .descricao {
+  font-size: 0.9rem;
+  color: var(--cor-cinza);
+  flex-grow: 1;
+}
+
+.card-produto .preco {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+}
+
+.card-produto .acoes {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.card-produto .acoes button {
+  flex: 1;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+}
+
+.card-produto .acoes button.secundario {
+  background-color: #fff;
+  color: var(--cor-primaria);
+  border: 1px solid var(--cor-primaria);
+}
+
+.card-produto .acoes button.secundario:hover {
+  background-color: #ffebee;
+}
+
+/* Estado "sem resultados" */
+.sem-resultado {
+  text-align: center;
+  color: var(--cor-cinza);
+  font-style: italic;
+  padding: 1.5rem;
+  grid-column: 1 / -1;
+}
+
+/* Contador do carrinho flutuante */
+.contador-carrinho {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: var(--cor-primaria);
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 100;
+}
+
+.contador-carrinho.vazio {
+  display: none;
+}
+
+/* Animação de destaque ao adicionar */
+@keyframes piscar {
+  0%   { background-color: #fff; }
+  50%  { background-color: #fff3e0; }
+  100% { background-color: #fff; }
+}
+
+.card-produto.adicionado {
+  animation: piscar 0.6s ease;
+}
+
+/* Responsivo extra: cards ocupam largura toda no celular */
+@media (max-width: 480px) {
+  .grade-produtos {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   CONTADOR FLUTUANTE COM BOTÃO FINALIZAR
+   ============================================================ */
+
+.contador-carrinho {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: var(--cor-primaria);
+  color: #fff;
+  padding: 0.7rem 0.9rem;
+  border-radius: 50px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.contador-carrinho.vazio {
+  display: none;
+}
+
+.contador-texto {
+  white-space: nowrap;
+}
+
+.btn-finalizar {
+  background: #fff;
+  color: var(--cor-primaria);
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-finalizar:hover {
+  background: var(--cor-secundaria);
+  color: #fff;
+}
+
+/* Mobile: contador ocupa largura e botão "cola" embaixo */
+@media (max-width: 480px) {
+  .contador-carrinho {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    justify-content: space-between;
+    border-radius: 12px;
+  }
+}

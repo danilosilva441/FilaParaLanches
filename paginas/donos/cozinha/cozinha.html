@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Equipe FilaParaLanches">
+    <meta name="description" content="FilaParaLanches - fila da cozinha com o controle de preparo dos pedidos.">
+    <meta name="keywords" content="cozinha, fila, pedidos, preparo, status">
+    <title>FilaParaLanches | Cozinha</title>
+
+    <link rel="stylesheet" href="../../../css/estilo.css">
+    <link rel="stylesheet" href="cozinha.css">
+
+    <script src="../../../js/global.js" defer></script>
+    <script src="cozinha.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>FilaParaLanches</h1>
+        <p><em>Seu lanche na hora certa, sem bagunça na fila.</em></p>
+    </header>
+
+    <hr>
+
+    <nav>
+        <button type="button" class="menu-toggle" id="menu-toggle"
+                aria-expanded="false" aria-label="Abrir menu">☰</button>
+        <ul id="menu-principal">
+            <li><a href="../../../index.html">Início</a></li>
+            <li><a href="../../clientes/produtos/produtos.html">Produtos</a></li>
+            <li><a href="../../contato/contato.html">Contato</a></li>
+            <li><a href="../../login/login.html">Login</a></li>
+            <li><a href="../caixa/caixa.html">Caixa</a></li>
+            <li><a href="../cozinha/cozinha.html">Cozinha</a></li>
+            <li><a href="../estoque/estoque.html">Estoque</a></li>
+            <li><a href="../../clientes/acompanhamento/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <main>
+
+        <section id="titulo-cozinha">
+            <h2>Fila da Cozinha</h2>
+            <p>
+                Os pedidos aparecem aqui em tempo real, agrupados por status.
+                Arraste mentalmente (ou clique nos botões) para avançar cada pedido.
+            </p>
+            <p>
+                <button type="button" id="btn-atualizar" class="botao-secundario">
+                    🔄 Atualizar fila
+                </button>
+                <span id="contador-fila" class="contador-fila"></span>
+            </p>
+        </section>
+
+        <hr>
+
+        <!-- ---------- KANBAN DE PEDIDOS ---------- -->
+        <section id="kanban" class="kanban">
+
+            <div class="coluna" data-status="recebido">
+                <h3>📥 Recebidos</h3>
+                <div class="cartoes" id="col-recebido"></div>
+            </div>
+
+            <div class="coluna" data-status="preparo">
+                <h3>👨‍🍳 Em preparo</h3>
+                <div class="cartoes" id="col-preparo"></div>
+            </div>
+
+            <div class="coluna" data-status="pronto">
+                <h3>🔔 Prontos</h3>
+                <div class="cartoes" id="col-pronto"></div>
+            </div>
+
+            <div class="coluna" data-status="entregue">
+                <h3>✅ Entregues</h3>
+                <div class="cartoes" id="col-entregue"></div>
+            </div>
+
+        </section>
+
+        <hr>
+
+        <!-- ---------- ATUALIZAR STATUS MANUAL ---------- -->
+        <section id="atualizar-status">
+            <h3>Atualizar status manualmente</h3>
+
+            <form action="#" method="post" id="form-status" novalidate>
+                <fieldset>
+                    <legend>Atualização manual</legend>
+
+                    <p>
+                        <label for="nro-pedido-coz">Número do pedido: *</label>
+                        <input type="number" id="nro-pedido-coz" name="nro-pedido"
+                               min="1" required>
+                    </p>
+
+                    <p>
+                        <label for="novo-status">Novo status: *</label>
+                        <select id="novo-status" name="status" required>
+                            <option value="">Selecione o status</option>
+                            <option value="recebido">Recebido</option>
+                            <option value="preparo">Em preparo</option>
+                            <option value="pronto">Pronto</option>
+                            <option value="entregue">Entregue</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <button type="submit">Atualizar status</button>
+                    </p>
+
+                    <p id="msg-status" class="form-msg" aria-live="polite"></p>
+                </fieldset>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- ---------- ETAPAS ---------- -->
+        <section id="etapas">
+            <h3>Etapas do preparo</h3>
+            <ol class="etapas-legenda">
+                <li><strong>Recebido</strong> — pedido entrou na fila.</li>
+                <li><strong>Em preparo</strong> — lanche sendo montado.</li>
+                <li><strong>Pronto</strong> — pode ser retirado no balcão.</li>
+                <li><strong>Entregue</strong> — cliente já retirou.</li>
+            </ol>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <footer>
+        <h2>FilaParaLanches</h2>
+
+        <h3>Navegação</h3>
+        <ul>
+            <li><a href="../../../index.html">Início</a></li>
+            <li><a href="../../clientes/produtos/produtos.html">Produtos</a></li>
+            <li><a href="../../contato/contato.html">Contato</a></li>
+            <li><a href="../../login/login.html">Login</a></li>
+            <li><a href="../caixa/caixa.html">Caixa</a></li>
+            <li><a href="../cozinha/cozinha.html">Cozinha</a></li>
+            <li><a href="../estoque/estoque.html">Estoque</a></li>
+            <li><a href="../../clientes/acompanhamento/acompanhamento.html">Acompanhar</a></li>
+        </ul>
+
+        <h3>Contato</h3>
+        <address>
+            Rua das Chamas, 123 - Centro<br>
+            Telefone: (00) 0000-0000<br>
+            E-mail: <a href="mailto:contato@filaparalanches.com.br">contato@filaparalanches.com.br</a>
+        </address>
+
+        <p><small>&copy; 2026 FilaParaLanches - Todos os direitos reservados.</small></p>
+    </footer>
+
+</body>
+</html>
